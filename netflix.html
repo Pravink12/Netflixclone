@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" type="image/png">
+  <title>Home-Netflix Clone</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    }
+
+    .logo {
+      width: 140px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li {
+      cursor: pointer;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,0,0,0.6);
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+    }
+
+    /* HERO SLIDER */
+    .hero {
+      height: 100vh;
+      position: relative;
+    }
+
+    .hero-content {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .slide h1,
+    .slide h2,
+    .watch-btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .slide h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .watch-btn {
+      background: #e50914;
+      border: none;
+      padding: 14px 30px;
+      font-size: 1.2rem;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* FEATURE SECTIONS */
+    .feature {
+      padding: 60px 50px;
+      border-top: 8px solid #222;
+    }
+
+    .feature h1 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+    }
+
+    .video-grid {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 10px;
+    }
+
+    .video-grid iframe {
+      min-width: 320px;
+      height: 180px;
+      flex-shrink: 0;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+
+    /* Hover zoom effect */
+    .video-grid iframe:hover {
+      transform: scale(1.1);
+    }
+
+    .video-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .video-grid::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 4px;
+    }
+
+    footer {
+      padding: 40px 50px;
+      border-top: 8px solid #222;
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png">
+    <ul class="nav-links">
+      <li>Home</li>
+      <li>TV Series</li>
+      <li>Movies</li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Search">
+      🔍
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="slide active" style="background-image:url('https://wallpapercave.com/wp/wp13145164.jpg')">
+        <h1>Stranger Things</h1>
+        <h2>The Final Season</h2>
+        <button class="watch-btn">▶ Watch Now</button>
+      </div>
+
+      <div class="slide" style="background-image:url('https://wallpapercave.com/wp/wp7482150.jpg')">
+        <h1>The Witcher</h1>
+        <h2>Destiny is a beast</h2>
+        <button class="watch-btn">▶ Watch Now</button>
+      </div>
+
+      <div class="slide" style="background-image:url('https://wallpapercave.com/wp/wp11260161.jpg')">
+        <h1>Money Heist</h1>
+        <h2>The Final Heist</h2>
+        <button class="watch-btn">▶ Watch Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP 10 NETFLIX SERIES -->
+  <section class="feature">
+    <h1>Top 10 Netflix Series Today</h1>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/EXeTwQWrcwY" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/TcMBFSGVi1c" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/5PSNL1qE6VY" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/6ZfuNTqbHE8" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/b9EkMc79ZSU" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/ndl1W4ltcmg" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/rgXplohCw5o" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/JfVOs4VSpmA" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/9GgxinPwAGc" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/R2gbPxeNk2E" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- JAPANESE ANIME (INDIAN MOVIE TRAILERS) -->
+  <section class="feature">
+    <h1>Japanese Anime</h1>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/Qah9sSIXJqk?si=ZApccgUpw90pJmrY" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/G62HrubdD6o?si=OFF4lgJRfOURO404" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/gcHH34cEl3Y?si=s76GStpEt2kjZ-wf" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/wboGYls1Bns?si=YE82WyiPXWQgU8tX" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/WWthtnGbxUM?si=bFJqAgHgz__s4kI4" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Mod_oXpftJA?si=4cBtz4pX8xm0x1NU" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/_qOl_7qfPOM?si=BmABUJatbkdv4Cq8" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/N1ZwRv3vJJY?si=4jVvSu3bjsylFeJZ" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/eHOc-4D7MjY?si=atWhtHIrK9tYocUz" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/8HiWKbDTc7w?si=HfoWXs1VzWQPwJ84" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <footer>
+    Netflix Clone – Educational Purpose
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 5000);
+  </script>
+
+</body>
+</html>
