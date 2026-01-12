@@ -1,6 +1,6 @@
 # Netflixclone
 A responsive Netflix clone webpage built using HTML and CSS, replicating the original platform’s layout and visual design.
-![Homepage](assets/images/homepage.png)
+![Homepage](https://github.com/Pravink12/Netflixclone/blob/851260856efd5c856b31015648572cb47e8a7294/page1.png)
 ## Features
 - Netflix-style homepage UI
 - Responsive layout for multiple screen sizes
